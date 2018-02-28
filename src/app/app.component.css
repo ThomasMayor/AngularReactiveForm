@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+form, label, fieldset {
+  font-family: sans-serif;
+  display: block;
+  width: 100%;
+}
+fieldset {
+  border: 0px solid transparent;
+  padding: 0 0 10px 0;
+  margin: 0;
+}
+.subfieldset {
+  padding: 0 0 10px 0;
+}
+legend {
+  font-weight: bold;
+  padding: 10px 0;
+}
+label {
+  min-width: 200px;
+  display: flex;
+  align-items: baseline;
+}
+label span {
+  min-width: 100px;
+  display: inline-block;
+}
+input {
+  padding: 10px;
+  color: #212121;
+}
+pre {
+  padding: 20px;
+  background-color: #EEEEEE;
+  border: 1px solid #BDBDBD;
+}

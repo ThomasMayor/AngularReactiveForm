@@ -1,20 +1,49 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div>
+  <form [formGroup]="form">
+    <legend>Simple fields</legend>
+    <label>
+      <span>Category:</span>
+      <input type="text" formControlName="category">
+    </label>
+    <label>
+      <span>Count:</span>
+      <input type="number" formControlName="count">
+    </label>
+    <fieldset formGroupName="name">
+      <legend>Sub object:</legend>
+        <label>
+          <span>First:</span>
+          <input type="text" formControlName="first">
+        </label>
+        <label>
+          <span>Last:</span>
+          <input type="text" formControlName="last">
+        </label>
+    </fieldset>
+    <fieldset formArrayName="details">
+      <legend>Array of sub objects</legend>
+      <div *ngFor="let detail of form.get('details').controls; index as i">
+        <div [formGroupName]="i" class="subfieldset">
+          <label>
+            <span>Text:</span>
+            <input type="text" formControlName="text">
+          </label>
+          <label>
+            <span>Title:</span>
+            <input type="text" formControlName="title">
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset formArrayName="list">
+      <legend>Simple List</legend>
+      <div *ngFor="let item of form.get('list').controls; index as i">
+        <input type="number" [formControlName]="i">
+      </div>
+    </fieldset>
+    <legend>Simple List Using Custom Component</legend>
+    <app-simple-list formControlName="list2"></app-simple-list>
+  </form>
+  <pre>{{form.value | json}}</pre>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-

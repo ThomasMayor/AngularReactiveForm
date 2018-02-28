@@ -1,0 +1,6 @@
+<div>
+  <div *ngFor="let item of list; index as i; trackBy: trackByFn">
+    <input type="text" [(ngModel)]="list[i]" (input)="itemChange($event, i)"><button (click)="removeItem(i)">-</button>
+  </div>
+  <button (click)="addItem()">+</button>
+<div>
